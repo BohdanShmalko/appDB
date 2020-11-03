@@ -1,0 +1,23 @@
+.examinationTable {
+    background-color: white;
+}
+
+.examinationTable table{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.examinationTable table, .examinationTable th, .examinationTable td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.student {
+    text-align: right;
+    padding: 2%;
+}
+
+.dean {
+    text-align: left;
+    padding: 2%;
+}

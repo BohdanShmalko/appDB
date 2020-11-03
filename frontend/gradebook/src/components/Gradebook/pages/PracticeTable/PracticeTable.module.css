@@ -1,0 +1,17 @@
+.practiceTable {
+    background-color: white;
+}
+
+.free {
+    height: 40px;
+}
+
+.practiceTable table{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.practiceTable table, .practiceTable th, .practiceTable td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}

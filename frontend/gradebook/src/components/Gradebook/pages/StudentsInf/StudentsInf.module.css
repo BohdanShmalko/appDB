@@ -1,0 +1,39 @@
+.studentsInf {
+    background-color: white;
+    padding: 1%;
+}
+
+.mainInf {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /*grid-area: nothing;*/
+    grid-template-areas:
+    "photo inf"
+}
+
+.photo {
+    grid-area: photo;
+}
+
+.photo img{
+    width: 200px;
+}
+
+.inf {
+    grid-area: inf;
+}
+
+.number {
+    font-size: 150%;
+}
+
+.infWrapper {
+    font-family: serif;
+    text-align: left;
+    font-size: 120%;
+    padding: 2%;
+}
+
+.infWrapper * {
+    padding: 0.5%;
+}

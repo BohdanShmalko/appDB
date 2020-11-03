@@ -1,0 +1,22 @@
+.practice {
+    background-color: white;
+    padding: 2%;
+}
+
+.pageName {
+    text-align: left;
+}
+
+.student {
+    text-align: right;
+}
+
+.practice table{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.practice table, .practice th, .practice td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}

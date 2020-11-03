@@ -1,0 +1,12 @@
+.book {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.navigation input {
+    width: 70%;
+}
+
+.navigation button {
+    width: 10%;
+}

@@ -1,0 +1,23 @@
+.degreeProject {
+    background-color: white;
+    font-size: 120%;
+
+}
+
+.wrapper {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.main {
+    text-align: left;
+}
+
+.main * {
+    padding: 0.5%;
+}
+
+.free {
+    height: 50px;
+}
+

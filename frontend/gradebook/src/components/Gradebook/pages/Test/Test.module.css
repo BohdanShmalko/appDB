@@ -1,0 +1,16 @@
+.test {
+    background-color: white;
+}
+.date {
+    text-align: left;
+}
+
+.marks table{
+   width: 80%;
+    margin-left: 10%;
+}
+
+.marks table, .marks th, .marks td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}

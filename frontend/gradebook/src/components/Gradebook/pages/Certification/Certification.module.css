@@ -1,0 +1,23 @@
+.certification {
+    background-color: white;
+}
+
+.name {
+    text-align: right;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.certification table{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.certification table, .certification th, .certification td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.free {
+    height: 50px;
+}
