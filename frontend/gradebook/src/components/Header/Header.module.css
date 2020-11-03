@@ -1,0 +1,15 @@
+.header {
+    margin-bottom: 1%;
+    background-color: #a7ff97;
+    height: 60px;
+}
+
+.logo img {
+    width: 50px;
+}
+
+.buttons {
+    text-align: right;
+    margin-top: -40px;
+    margin-right: 10px;
+}

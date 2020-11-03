@@ -1,0 +1,14 @@
+.footer {
+    margin-top: 1%;
+    background-color: #a7ff97;
+    height: 60px;
+}
+
+.logo img {
+    width: 50px;
+}
+
+.content {
+    text-align: center;
+    margin-top: -40px;
+}
