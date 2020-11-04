@@ -3,6 +3,8 @@ import {connect} from "react-redux"
 import {compose} from "redux"
 import Gradebook from "./Gradebook";
 import {changePage, gradebookAC} from "../../redux/gradebookReducer";
+import {withAuthRedirect} from "../../HOC/Auth";
+import {withMarksRedirect} from "../../HOC/NoStudent";
 
 const {changeCurrentPage} = gradebookAC
 
@@ -17,10 +19,12 @@ class PeoplesContainer extends React.Component {
 }
 
 const stateToProps = state => ({
-    gradebook : state.gradebook
+    gradebook : state.gradebook,
+    isAuthorize: state.auth.isAuthorize
 })
 
 export default compose(
-    connect(stateToProps, {changePage, changeCurrentPage}))(PeoplesContainer)
+    connect(stateToProps, {changePage, changeCurrentPage}),
+    withAuthRedirect,withMarksRedirect)(PeoplesContainer)
 
 

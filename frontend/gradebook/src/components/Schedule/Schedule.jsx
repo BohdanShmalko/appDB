@@ -13,9 +13,9 @@ const Schedule = ({schedule, changeCurrentInp, changeSchedule}) =>{
         <input ref = {inp} value = {schedule.currentInp} onChange={changeInp}/> <button onClick={getSchedule}>Ок</button>
         {schedule.name !== "" && <div>Ви переглядаєте розклад <b>{schedule.name}</b></div>}
         <div><b>Перший тиждень</b></div>
-        <Table data = {schedule.first}/>
+        <Table data = {schedule.first} clickFunc = {changeSchedule}/>
         <div><b>Другий тиждень</b></div>
-        <Table data = {schedule.second}/>
+        <Table data = {schedule.second} clickFunc = {changeSchedule}/>
     </div>
 }
 

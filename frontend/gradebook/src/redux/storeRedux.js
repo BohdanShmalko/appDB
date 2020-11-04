@@ -4,12 +4,14 @@ import {reducer as formReducer} from 'redux-form'
 import {gradebookReducer} from "./gradebookReducer";
 import {scheduleReducer} from "./scheduleReducer";
 import {marksReducer} from "./marksReducer";
+import {authReducer} from "./authReducer";
 
 let reducers = combineReducers({
     form : formReducer,
     gradebook : gradebookReducer,
     schedule : scheduleReducer,
-    marks : marksReducer
+    marks : marksReducer,
+    auth : authReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

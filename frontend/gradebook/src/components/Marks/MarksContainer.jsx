@@ -3,6 +3,8 @@ import {connect} from "react-redux"
 import {compose} from "redux"
 import Marks from "./Marks";
 import {getMarks, marksAC, saveMarks} from "../../redux/marksReducer";
+import {withAuthRedirect} from "../../HOC/Auth";
+import {withGradebookRedirect} from "../../HOC/NoTeacher";
 
 const {changeActiveYear, changeActiveSubject, changeActiveGroup} = marksAC
 
@@ -20,6 +22,7 @@ const stateToProps = state => ({
 })
 
 export default compose(
-    connect(stateToProps, {changeActiveYear, changeActiveSubject, changeActiveGroup, getMarks, saveMarks}))(PeoplesContainer)
+    connect(stateToProps, {changeActiveYear, changeActiveSubject, changeActiveGroup, getMarks, saveMarks}),
+    withAuthRedirect, withGradebookRedirect)(PeoplesContainer)
 
 

@@ -1,6 +1,7 @@
 .book {
     width: 80%;
     margin-left: 10%;
+    min-height: 500px;
 }
 
 .navigation input {

@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './Table.module.css'
 
-const Table = ({data}) =>{
+const Table = ({data, clickFunc}) =>{
 
     const getDayData = (day, number) => {
         const dayObj = data[day]
@@ -11,7 +11,10 @@ const Table = ({data}) =>{
             <td>{number+1}</td>
             <td>{hours[number]}</td>
             <td>{dayObj[number].subject}</td>
-            <td>{dayObj[number].teacher}</td>
+            {dayObj[number].teacher != "" &&
+            <td><span onClick={() => {clickFunc(dayObj[number].teacher)}}>
+                    {dayObj[number].teacher}</span></td>}
+            {dayObj[number].teacher == "" && <td></td>}
             <td>{dayObj[number].corps}</td>
             <td>{dayObj[number].audience}</td>
         </>
