@@ -2,6 +2,9 @@ import React from 'react'
 import {connect} from "react-redux"
 import {compose} from "redux"
 import Schedule from "./Schedule";
+import {changeSchedule, scheduleAC} from "../../redux/scheduleReducer";
+
+const {changeCurrentInp} = scheduleAC
 
 class PeoplesContainer extends React.Component {
     render() {
@@ -10,10 +13,10 @@ class PeoplesContainer extends React.Component {
 }
 
 const stateToProps = state => ({
-
+    schedule : state.schedule
 })
 
 export default compose(
-    connect(stateToProps, {}))(PeoplesContainer)
+    connect(stateToProps, {changeSchedule, changeCurrentInp}))(PeoplesContainer)
 
 

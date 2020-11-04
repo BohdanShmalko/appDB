@@ -6,6 +6,7 @@ import FooterContainer from './components/Footer/FooterContainer'
 import ScheduleContainer from './components/Schedule/ScheduleContainer'
 import GradebookContainer from './components/Gradebook/GradebookContainer'
 import MarksContainer from './components/Marks/MarksContainer'
+import LoginConteiner from "./components/Login/LoginConteiner";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
         <HeaderContainer/>
         <div className = "wrapper body">
           <Route path = '/schedule' render = {() => <ScheduleContainer/>} />
-          <Route path = '/gradebook/:id?' render = {() => <GradebookContainer/>} />
+          <Route path = '/gradebook' render = {() => <GradebookContainer/>} />
           <Route path = '/marks' render = {() => <MarksContainer/>} />
+          <Route path = '/login' render = {() => <LoginConteiner/>} />
         </div>
         <FooterContainer/>
       </div>

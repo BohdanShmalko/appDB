@@ -1,0 +1,64 @@
+[
+    {
+        "studyYear" : "2018-2019",
+        "isActive" : false,
+        "subjects" : [
+            {
+                "subjectName": "Об'єктно орієнтоване програмування",
+                "isActive" : false,
+                "groups": [
+                    {
+                        "name": "ІП-88",
+                        "isActive" : false,
+                        "students": [
+                            {
+                                "id": 10,
+                                "name": "Vasa",
+                                "surName": "Vasilev",
+                                "fatherName": "Vasilchenko",
+                                "mark" : "100"
+                            },
+                            {
+                                "id": 11,
+                                "name": "Ivan",
+                                "surName": "Ivanov",
+                                "fatherName": "Ivanenko",
+                                "mark" : "100"
+                            }
+                        ]
+                    }
+                ]
+            }]
+    },
+    {
+        "studyYear" : "2018-2019",
+        "isActive" : false,
+        "subjects" : [
+            {
+                "subjectName": "Об'єктно орієнтоване програмування",
+                "isActive" : false,
+                "groups": [
+                    {
+                        "name": "ІП-88",
+                        "isActive" : false,
+                        "students": [
+                            {
+                                "id": 10,
+                                "name": "Vasa",
+                                "surName": "Vasilev",
+                                "fatherName": "Vasilchenko",
+                                "mark" : "100"
+                            },
+                            {
+                                "id": 11,
+                                "name": "Ivan",
+                                "surName": "Ivanov",
+                                "fatherName": "Ivanenko",
+                                "mark" : "100"
+                            }
+                        ]
+                    }
+                ]
+            }]
+    }
+]
