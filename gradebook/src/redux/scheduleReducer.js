@@ -46,8 +46,8 @@ export const scheduleAC = {
 export const changeSchedule = name => async dispatch => {
     //dispatch(profileActionCreator.isLoad(false))
     const data = await scheduleAPI.loadSchedule(name)
-
-    dispatch(scheduleAC.changeScheduleState(data))
+    console.log(data)
+    //dispatch(scheduleAC.changeScheduleState(data))
 
     //dispatch(profileActionCreator.isLoad(true))
 }

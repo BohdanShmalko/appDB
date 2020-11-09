@@ -1,0 +1,11 @@
+--  id               | bigint                |           | not null | nextval('students_id_seq'::regclass)
+--  first_name       | character varying(50) |           | not null |
+--  last_name        | character varying(50) |           | not null |
+--  futher_name      | character varying(50) |           | not null |
+--  gradebook_number | integer               |           | not null |
+--  scholarship      | integer               |           | not null |
+--  education_form   | character varying(20) |           | not null |
+--  status           | character varying(50) |           | not null |
+--  birth_day        | date                  |           | not null |
+--  photo            | text                  |           | not null |
+--  group_id         | bigint                |           | not null |

@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "nodemon": "2.0.6",
+    "connect-redis": "^5.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "pg": "^8.4.2",
+    "redis": "^3.0.2"
+  },
+  "scripts": {
+    "server": "nodemon ./server"
+  }
+}

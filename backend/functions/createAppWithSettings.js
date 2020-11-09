@@ -1,6 +1,25 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const path = require('path')
+const 
+  express = require('express'),
+  bodyParser = require('body-parser'),
+  path = require('path'),
+  session = require('express-session'),
+  redisStorage = require('connect-redis')(session),
+  redis = require('redis'),
+  client = redis.createClient()
+
+  const sessionSettings = {
+
+  }
+
+    // {
+  //   store: new redisStorage({
+  //     host: '127.0.0.1',
+  //     port: 6379,
+  //     client: client,
+  //   }),
+  //   secret: 'gradebook',
+  //   saveUninitialized: true,
+  // }
 
 const createAppWithSettings = () => {
   const app = express()
@@ -13,11 +32,22 @@ const createAppWithSettings = () => {
 
   app.use(bodyParser.json());
 
-  app.set('view engine', 'ejs');
-  app.set('views', path.join(__dirname, '../../web/views'));
-  app.use(express.static('../web'));
+  
+  app.use(
+    session({
+      store: new redisStorage({
+        host: '127.0.0.1',
+        port: 6379,
+        client: client,
+      }),
+      secret: 'gradebook',
+      saveUninitialized: true,
+    })
+  )
 
-  return app
+
+
+  return {app, client}
 }
 
 module.exports = createAppWithSettings
