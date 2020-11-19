@@ -1,11 +1,12 @@
 const http = require('http'),
       {urlStandartForm, getParser} = require('./parsers/GETparser'),
       postParser = require('./parsers/POSTparser'),
-      Session = require("./session/session")
+      {SessionWrapper, DbWrapper} = require("./wrappers")
 
 
 class Svidko {
-    constructor() {
+    constructor(db) {
+        this.db = db
         this.routing = {get: {}, post: {}}
         this.app = http.createServer((req, res) => {  
             getParser(this.routing.get, req, res)
@@ -31,19 +32,12 @@ class Svidko {
         requests.forEach(page => {
             page.forEach(reqObj => {
                 this[reqObj.method](reqObj.url, (req,res) => {
-                    if(reqObj.hasSession) {
-                        const  session = new Session(req, res)
-                         session.get( data => {
-                            req.session = {
-                                token : session.token,
-                                data,
-                                set(obj) {
-                                    session.set(obj)
-                                }
-                            }
-                            session.end()                           
-                            reqObj.callback(req, res)
-                        })
+                    res.sendJSON = (object) => res.end(JSON.stringify(object))
+                    if(reqObj.config.useDB){
+                        DbWrapper(req, this.db)
+                    }
+                    if(reqObj.config.hasSession){
+                        SessionWrapper(req, res, reqObj.callback)
                     }
                     else reqObj.callback(req, res)
                 })
@@ -51,6 +45,7 @@ class Svidko {
         })
     }
 
+    
 }
 
 module.exports = Svidko

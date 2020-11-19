@@ -1,14 +1,15 @@
---  id                   | bigint                |           | not null | nextval('teachers_id_seq'::regclass)
---  first_name           | character varying(50) |           | not null |
---  last_name            | character varying(50) |           | not null |
---  futher_name          | character varying(50) |           | not null |
---  department           | character varying(50) |           | not null |
---  salary               | integer               |           | not null |
---  qualification_level  | character varying(50) |           | not null |
---  contract_termination | date                  |           | not null |
+CREATE TABLE teachers
+(
+    id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    first_name            VARCHAR(50)             not null,
+    last_name             VARCHAR(50)             not null,
+    futher_name           VARCHAR(50)             not null,
+    department            VARCHAR(50)             not null,
+    salary                INT(11)                 not null,
+    qualification_level   VARCHAR(50)             not null,
+    contract_termination  date                    not null
+);
 
-
-DELETE FROM teachers WHERE id <> 0;
 INSERT INTO teachers (id, first_name, last_name, futher_name, department, salary, qualification_level, contract_termination) VALUES (1, 'Оксана', 'Сергеєва', 'Олексіївна', 'КАМ №3', 10000, 'викладач', '2021-06-21');
 INSERT INTO teachers (id, first_name, last_name, futher_name, department, salary, qualification_level, contract_termination) VALUES (2, 'Валерій', 'Сімоненко', 'Павлович', 'ОТ', 10000, 'професор', '2021-06-21');
 INSERT INTO teachers (id, first_name, last_name, futher_name, department, salary, qualification_level, contract_termination) VALUES (3, 'Олександра', 'Бойко', 'Володимирівна', 'АУТС', 10000, 'викладач', '2021-06-21');

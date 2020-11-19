@@ -18,23 +18,23 @@ const StudyYears = ({years, funcs}) =>{
     }
     return <div className={s.studyYear}>
         <ul>
-            <div><b>Роки навчання :</b></div>
+            <div><b>Years of study: </b></div>
             {years.map((year, indexY) => <li>
                 <span onClick={() => changeActiveYear(indexY)}>{year.studyYear}</span>
                 <ul>
-                    {year.isActive && <div><b>Предмети :</b></div>}
+                    {year.isActive && <div><b>Subjects :</b></div>}
                     {year.isActive &&  year.subjects.map((subject, indexS) => <li>
                         <span onClick={() => changeActiveSubject(indexY, indexS)}>{subject.subjectName}</span>
                         <ul>
-                            {subject.isActive && <div><b>Групи :</b></div>}
+                            {subject.isActive && <div><b>Groups :</b></div>}
                             {subject.isActive && subject.groups.map((group, indexG) => <li>
                                 <span onClick={() => changeActiveGroup(indexY, indexS, indexG)}>{group.name}</span>
                                 <ul>
                                     {group.isActive && <li>
                                         <table>
                                             <tr>
-                                                <th>Студент</th>
-                                                <th>Оцінка</th>
+                                                <th>Student</th>
+                                                <th>Mark</th>
                                             </tr>
                                             {group.students.map(student => <tr>
                                                 <td>{student.name}</td>
@@ -43,7 +43,7 @@ const StudyYears = ({years, funcs}) =>{
                                         </table>
                                         <button onClick={() => saveAllMarks(year.studyYear, subject.subjectName, group.name, group.students) }
                                                 className={s.send}>
-                                            Зберегти
+                                            Save
                                         </button>
                                     </li>}
                                 </ul>

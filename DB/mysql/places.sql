@@ -1,8 +1,10 @@
---  id       | bigint                |           | not null | nextval('places_id_seq'::regclass)
---  corps    | character varying(10) |           | not null |
---  audience | character varying(10) |           | not null |
+CREATE TABLE places
+(
+    id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    corps     VARCHAR(10)             not null,
+    audience  VARCHAR(10)             not null 
+);
 
-DELETE FROM places WHERE id <> 0;
 INSERT INTO places (id, corps, audience) VALUES (1, 18, 101);
 INSERT INTO places (id, corps, audience) VALUES (2, 18, 102);
 INSERT INTO places (id, corps, audience) VALUES (3, 18, 103);

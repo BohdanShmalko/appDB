@@ -1,11 +1,13 @@
---  name            | character varying(50) |           | not null |
---  description     | text                  |           | not null |
---  loans           | character varying(20) |           | not null |
---  hours           | character varying(20) |           | not null |
---  occupation_type | character varying(20) |           | not null |
---  id              | bigint                |           | not null | nextval('subjects_id_seq'::regclass)
+CREATE TABLE subjects
+(
+    id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    name             VARCHAR(255)             not null,
+    description      TEXT                     not null,
+    loans            VARCHAR(255)             not null,
+    hours            VARCHAR(255)             not null,
+    occupation_type  VARCHAR(255)             not null
+);
 
-DELETE FROM subjects WHERE id <> 0;
 INSERT INTO subjects (id, name, description, loans, hours, occupation_type) VALUES (1, 'Іноз.мова проф.спрямування (англ.)', 'some', '100', '100', 'практика');
 INSERT INTO subjects (id, name, description, loans, hours, occupation_type) VALUES (2, 'Операційні системи', 'some', '100', '100', 'лекція');
 INSERT INTO subjects (id, name, description, loans, hours, occupation_type) VALUES (3, 'Бази даних-2. Програмні додатки', 'some', '100', '100', 'лабораторна');

@@ -10,11 +10,11 @@ const Header = ({auth, authorize}) =>{
         <div className={s.logo}> <img src={logo} /> </div>
         <div className={s.buttons}>
             <NavLink to = "/schedule"><button>Розклад</button></NavLink>
-            {isAuthorize && isStudentAuthorize && <NavLink to = "/gradebook"><button>Залікова книжка</button></NavLink>}
-            {isAuthorize && !isStudentAuthorize && <NavLink to = "/marks"><button>Виставити оцінки</button></NavLink>}
+            {isAuthorize && isStudentAuthorize && <NavLink to = "/gradebook"><button>Gradebook</button></NavLink>}
+            {isAuthorize && !isStudentAuthorize && <NavLink to = "/marks"><button>Set assessment</button></NavLink>}
             {isAuthorize
-                ?<NavLink to = "/schedule"><button onClick={() => authorize(false)}>Вийти</button></NavLink>
-                :<NavLink to = "/login"><button>Ввійти</button></NavLink>
+                ?<NavLink to = "/schedule"><button onClick={() => authorize(false)}>Log out</button></NavLink>
+                :<NavLink to = "/login"><button>Log in</button></NavLink>
             }
         </div>
     </header>

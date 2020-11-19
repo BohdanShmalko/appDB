@@ -1,5 +1,4 @@
 //const Session = require('./session.js');
-
 const TWO_HOUR = 1000 * 60 * 60 * 2
 const COOKIE_DELETE = `=deleted; Expires=${new Date(0).toUTCString()}; Path=/; Domain=`;
 
@@ -53,7 +52,7 @@ class Client {
     deleteCookie(name) {
       this.preparedCookie.push(name + COOKIE_DELETE + this.host);
     }
-  
+    
     sendCookie() {
       const { res, preparedCookie } = this;
       if (preparedCookie.length && !res.headersSent) {

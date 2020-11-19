@@ -1,6 +1,5 @@
 const Client = require('./client')
       redis = require('redis')
-      fs = require('fs')
 
 const TOKEN_LENGTH = 100,
       ALPHA_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',

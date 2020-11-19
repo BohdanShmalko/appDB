@@ -9,12 +9,12 @@ const Schedule = ({schedule, changeCurrentInp, changeSchedule}) =>{
     const getSchedule = () => changeSchedule(schedule.currentInp)
 
     return <div className={s.schedule}>
-        <span>Вкажіть назву групи, або Пізвище та ініціали викладача розклад якого хочете дізнатися : </span>
-        <input ref = {inp} value = {schedule.currentInp} onChange={changeInp}/> <button onClick={getSchedule}>Ок</button>
-        {schedule.name !== "" && <div>Ви переглядаєте розклад <b>{schedule.name}</b></div>}
-        <div><b>Перший тиждень</b></div>
+        <span>Enter the name of the group, or the name and initials of the teacher whose schedule you want to know: </span>
+        <input ref = {inp} value = {schedule.currentInp} onChange={changeInp}/> <button onClick={getSchedule}>Ok</button>
+        {schedule.name !== "" && <div>You are viewing the schedule <b>{schedule.name}</b></div>}
+        <div><b>The first week</b></div>
         <Table data = {schedule.first} clickFunc = {changeSchedule}/>
-        <div><b>Другий тиждень</b></div>
+        <div><b>The second week</b></div>
         <Table data = {schedule.second} clickFunc = {changeSchedule}/>
     </div>
 }

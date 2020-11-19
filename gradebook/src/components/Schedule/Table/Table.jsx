@@ -22,12 +22,11 @@ const Table = ({data, clickFunc}) =>{
 
     const getAllDays = () => {
         let fiveDays = []
-        const daysUa = ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"]
         const daysEn = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
         for (let i = 0; i < 6; i++){
             for(let j = 0; j < 5; j++){
                 if (j == 0) fiveDays.push(<tr>
-                    <td rowSpan="5">{daysUa[i]}</td>
+                    <td rowSpan="5">{daysEn[i]}</td>
                     {getDayData(daysEn[i], j)}
                 </tr>)
                 else fiveDays.push(<tr>{getDayData(daysEn[i], j)}</tr>)
@@ -38,13 +37,13 @@ const Table = ({data, clickFunc}) =>{
 
     return <table className={s.table}>
             <tr>
-                <th>День</th>
-                <th>Пара</th>
-                <th>Час</th>
-                <th>Предмет</th>
-                <th>Викладач</th>
-                <th>Корпус</th>
-                <th>Аудиторія</th>
+                <th>Day</th>
+                <th>Pair</th>
+                <th>Time</th>
+                <th> Subject </th>
+                <th> Teacher </th>
+                <th> Corpuse </th>
+                <th> Audience </th>
             </tr>
         {getAllDays()}
         </table>

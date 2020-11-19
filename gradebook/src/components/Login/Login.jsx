@@ -11,11 +11,11 @@ const Login = (props) =>{
     const LogInForm = ({handleSubmit}) => {
         return (
             <form onSubmit={handleSubmit} className={s.form}>
-                <div>Введіть Ваш e-mail :</div>
+                <div>Enter your e-mail :</div>
                 {FieldCreator(null, 'email',
                     CheckInput, [empty], null,
-                    'Email or phone number')}
-                <div>Введіть Ваш пароль :</div>
+                    'Email')}
+                <div>Enter your password :</div>
                 {FieldCreator(null, 'password',
                     CheckInput, [empty], 'password',
                     'Password')}

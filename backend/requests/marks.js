@@ -1,18 +1,8 @@
-const marks = [
-    {
-        method : 'get',
-        url : '/marks1',
-        callback(req,res) {
-            res.end('marks1')
-        }
-    },
-    {
-        method : 'get',
-        url : '/marks2',
-        callback(req,res) {
-            res.end('marks2')
-        }
-    }
-]
+const requestCreator = require("../myLib/svidko/requestCreator")
 
-module.exports = marks
+const getMarks = requestCreator('post', 'getMarks', (req, res) => {
+
+    res.sendJSON({})
+}, {useDB : true})
+
+module.exports = [getMarks]

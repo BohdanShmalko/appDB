@@ -1,12 +1,20 @@
---  id         | bigint |           | not null | nextval('schedules_id_seq'::regclass)
---  teacher_id | bigint |           | not null |
---  subject_id | bigint |           | not null |
---  group_id   | bigint |           | not null |
---  hour_id    | bigint |           | not null |
---  place_id   | bigint |           | not null |
---  day_id     | bigint |           | not null |
+CREATE TABLE schedules
+(
+    id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    teacher_id INT(11) NOT NULL,
+    subject_id INT(11) NOT NULL,
+    group_id INT(11) NOT NULL,
+    hour_id INT(11) NOT NULL,
+    place_id INT(11) NOT NULL,
+    day_id INT(11) NOT NULL,
+    FOREIGN KEY (teacher_id)  REFERENCES teachers (id),
+    FOREIGN KEY (subject_id)  REFERENCES subjects (id),
+    FOREIGN KEY (group_id)  REFERENCES groups (id),
+    FOREIGN KEY (hour_id)  REFERENCES hours (id),
+    FOREIGN KEY (place_id) REFERENCES places (id),
+    FOREIGN KEY (day_id)  REFERENCES days (id)
+);
 
-DELETE FROM schedules WHERE id <> 0;
 INSERT INTO schedules (id, teacher_id, subject_id, group_id, hour_id, place_id, day_id) VALUES (1, 1, 1, 1, 1, 1, 2);
 INSERT INTO schedules (id, teacher_id, subject_id, group_id, hour_id, place_id, day_id) VALUES (2, 1, 1, 1, 1, 1, 8);
 INSERT INTO schedules (id, teacher_id, subject_id, group_id, hour_id, place_id, day_id) VALUES (3, 3, 3, 1, 2, 2, 2);

@@ -1,18 +1,13 @@
-const schedule = [
-    {
-        method : 'get',
-        url : '/schedule1',
-        callback(req,res) {
-            res.end('schedule1')
-        }
-    },
-    {
-        method : 'get',
-        url : '/schedule2',
-        callback(req,res) {
-            res.end('schedule2')
-        }
-    }
-]
+const requestCreator = require("../myLib/svidko/requestCreator")
 
-module.exports = schedule
+const getSchedule = requestCreator('post', '/getSchedule', (req, res) => {
+    res.sendJSON({})
+}, {useDB : true})
+
+const test = requestCreator('get', '/test', async (req, res) => {
+    const teachers = await req.db.query(`SELECT * FROM teachers`)
+    res.sendJSON(teachers)
+}, {useDB : true})
+
+
+module.exports = [getSchedule, test]

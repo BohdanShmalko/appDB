@@ -4,14 +4,15 @@
 --  teacher_id | bigint                |           | not null |
 
 
-DROP TABLE teachers_authentications;
+-- DROP TABLE teachers_authentications;
 
 CREATE TABLE teachers_authentications
 (
-    id bigserial NOT NULL PRIMARY KEY,
+    id serial NOT NULL PRIMARY KEY,
     login VARCHAR(50)  NOT NULL,
     password VARCHAR(50)  NOT NULL,
-    teacher_id BIGINT NOT NULL REFERENCES teachers (id));
+    teacher_id INT NOT NULL REFERENCES teachers (id)
+);
 
-DELETE FROM teachers_authentications WHERE id <> 0;
-INSERT INTO teachers_authentications (id, ) VALUES (1, );
+--DELETE FROM teachers_authentications WHERE id <> 0;
+--INSERT INTO teachers_authentications (id, ) VALUES (1, );

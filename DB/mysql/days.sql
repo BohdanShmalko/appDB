@@ -1,8 +1,10 @@
--- id         | bigint                |           | not null | nextval('days_id_seq'::regclass)
--- day        | character varying(20) |           | not null |
--- study_week | character varying(1)
+CREATE TABLE days
+(
+    id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    day VARCHAR(100)  NOT NULL,
+    study_week INT(1)  NOT NULL
+);
 
-DELETE FROM days WHERE id <> 0;
 INSERT INTO days (id, day, study_week) VALUES (1, 'Понеділок', '1');
 INSERT INTO days (id, day, study_week) VALUES (2, 'Вівторок', '1');
 INSERT INTO days (id, day, study_week) VALUES (3, 'Середа', '1');

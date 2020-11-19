@@ -1,16 +1,10 @@
 // const Client = require("../myLib/svidko/session/client") //for cookie
 const requestCreator = require("../myLib/svidko/requestCreator")
 
-const page1 = requestCreator('get', '/gradebook1', (req, res) => {
-    data = JSON.parse( req.session.data)
-    data.id = 20
-    data.name = "Vasa"
-    req.session.set(data)
-    res.end(JSON.stringify(data))
-},true)
+const login = requestCreator('post', '/login', (req, res) => {
 
-const page2 = requestCreator('get', '/gradebook2', (req,res) => {
-    res.end('gradebook2')
-})
+    res.sendJSON({})
+}, {useDB : true})
 
-module.exports = [page1, page2]
+
+module.exports = [login]

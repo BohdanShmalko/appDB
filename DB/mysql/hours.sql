@@ -1,9 +1,11 @@
---  id          | bigint                |           | not null | nextval('hours_id_seq'::regclass)
---  pair_number | smallint              |           | not null |
---  beginning   | character varying(10) |           | not null |
---  ending      | character varying(10) |           | not null |
+CREATE TABLE hours
+(
+    id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    pair_number  INT(2)                          not null ,
+    beginning    VARCHAR(10)             not null ,
+    ending       VARCHAR(10)             not null 
+);
 
-DELETE FROM hours WHERE id <> 0;
 INSERT INTO hours (id, pair_number, beginning, ending) VALUES (1, 1, '8:30', '10:05');
 INSERT INTO hours (id, pair_number, beginning, ending) VALUES (2, 2, '10:25', '12:00');
 INSERT INTO hours (id, pair_number, beginning, ending) VALUES (3, 3, '12:20', '13:55');
