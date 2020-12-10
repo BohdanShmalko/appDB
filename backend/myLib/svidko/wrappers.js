@@ -3,12 +3,13 @@ const Session = require("./session/session")
 const DbWrapper = (req, db) => {
     req.db = {
         query : sql => {
-            db.connect()
-            return db.query(sql).then(data => {
-                db.end()
+            //db.connect()
+            return db.query(sql).then(async data => {
+                //db.end()
                 return data.rows
             }).catch(e => {throw e})
-        }
+        },
+        //end : () => db.end()
     }
 }
 

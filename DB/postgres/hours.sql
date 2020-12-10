@@ -6,9 +6,9 @@
 CREATE TABLE hours
 (
     id serial NOT NULL PRIMARY KEY,
-    pair_number  CHAR(1)                          not null ,
-    beginning    character varying(10)             not null ,
-    ending       character varying(10)             not null 
+    pair_number  smallint                          not null unique,
+    beginning    char(5)             not null unique,
+    ending       char(5)             not null unique
 );
 
 --DELETE FROM hours WHERE id <> 0;

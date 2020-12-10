@@ -6,23 +6,24 @@ import {getMarks, marksAC, saveMarks} from "../../redux/marksReducer";
 import {withAuthRedirect} from "../../HOC/Auth";
 import {withGradebookRedirect} from "../../HOC/NoTeacher";
 
-const {changeActiveYear, changeActiveSubject, changeActiveGroup} = marksAC
+const {changeActiveYear, changeActiveSubject, changeActiveGroup, changeMark} = marksAC
 
 class PeoplesContainer extends React.Component {
     render() {
         return <Marks {...this.props}/>
     }
     componentDidMount() {
-        this.props.getMarks()
+        this.props.getMarks(this.props.userId)
     }
 }
 
 const stateToProps = state => ({
-    marks : state.marks
+    marks : state.marks,
+    userId : state.auth.userId
 })
 
 export default compose(
-    connect(stateToProps, {changeActiveYear, changeActiveSubject, changeActiveGroup, getMarks, saveMarks}),
+    connect(stateToProps, {changeActiveYear, changeActiveSubject, changeActiveGroup, getMarks, saveMarks, changeMark}),
     withAuthRedirect, withGradebookRedirect)(PeoplesContainer)
 
 

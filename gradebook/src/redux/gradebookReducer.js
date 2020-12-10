@@ -38,11 +38,13 @@ export const gradebookAC = {
 
 }
 
-export const changePage = number => async dispatch => {
+export const changePage = (num, userId) => async dispatch => {
     //dispatch(profileActionCreator.isLoad(false))
-    const data = await gradebookAPI.loadPage(number)
+    console.log(num, userId)
+    const data = await gradebookAPI.loadPage(num, userId)
 
     dispatch(gradebookAC.changePageState(data))
+    console.log(data);
     if(data.number === 0) dispatch(gradebookAC.previousIsDisabled(true))
     else dispatch(gradebookAC.previousIsDisabled(false))
 

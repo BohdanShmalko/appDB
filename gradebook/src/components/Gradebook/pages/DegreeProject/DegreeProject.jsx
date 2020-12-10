@@ -12,10 +12,10 @@ const DegreeProject = ({page}) =>{
             <div>Прізвище керівника : {page.courseSupervisor}</div>
             <div>Дата подання проекту (роботи) у деканат (відділення) : {page.projectSubmissionDate}</div>
             <div>Дата захисту роботи : {page.protectionDate}</div>
-            <div>Оцінка екзаменаційної комісії: </div>
+            <div>Оцінка екзаменаційної комісії: {page.markWords}</div>
             <div>кількість балів : {page.mark100}</div>
             <div>за національною шкалою : {page.markWords}</div>
-            <div> Члени екзаменаційної комісії : {page.сommissionMembers}</div>
+            <div> Члени екзаменаційної комісії : {page.first}, {page.second}, {page.third}</div>
         </div>
         </div>
     </div>

@@ -8,11 +8,11 @@
 CREATE TABLE subjects
 (
     id serial NOT NULL PRIMARY KEY,
-    name             character varying(255)             not null,
-    description      text                              not null,
-    loans            character varying(255)             not null,
-    hours            character varying(255)             not null,
-    occupation_type  character varying(255)             not null
+    name             character varying(50)             not null,
+    description      text                              null,
+    loans            smallint             not null,
+    hours            smallint            not null,
+    occupation_type  character varying(50)             not null
 );
 
 insert into subjects (id, name, description, loans, hours, occupation_type) values (1, 'Martainn', 'Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 50, 96, 'practice');

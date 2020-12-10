@@ -1,12 +1,10 @@
-import axios from 'axios'
+import bogDaxios from './bogdaxios'
 
-const instance = axios.create({
-    baseURL : 'http://localhost:3001/'
-})
+let instance = new bogDaxios('http://localhost:3001/')
 
 export const scheduleAPI = {
     loadSchedule(name) {
-        return instance.get(`schedule/${name}`).then(responce => responce.data)
+        return instance.post(`schedule`, {name}).then(responce => responce.json())
     }
 }
 

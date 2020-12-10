@@ -9,7 +9,7 @@ const Header = ({auth, authorize}) =>{
     return <header className={s.header}>
         <div className={s.logo}> <img src={logo} /> </div>
         <div className={s.buttons}>
-            <NavLink to = "/schedule"><button>Розклад</button></NavLink>
+            <NavLink to = "/schedule"><button>Schedule</button></NavLink>
             {isAuthorize && isStudentAuthorize && <NavLink to = "/gradebook"><button>Gradebook</button></NavLink>}
             {isAuthorize && !isStudentAuthorize && <NavLink to = "/marks"><button>Set assessment</button></NavLink>}
             {isAuthorize

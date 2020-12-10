@@ -1,15 +1,13 @@
-import axios from 'axios'
+import bogDaxios from './bogdaxios'
 
-const instance = axios.create({
-    baseURL : 'http://localhost:3001/'
-})
+let instance = new bogDaxios('http://localhost:3001/')
 
 export const marksAPI = {
-    loadMarks() {
-        return instance.get('marks').then(responce => responce.data)
+    loadMarks(userId) {
+        return instance.post('marks', {userId}).then(responce => responce.json())
     },
     saveMarks(inf) {
-        return instance.post('saveMarks', inf).then(responce => responce.data)
+        return instance.post('saveMarks', inf).then(responce => responce.json())
     }
 }
 

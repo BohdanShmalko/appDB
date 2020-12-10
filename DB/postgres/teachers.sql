@@ -13,11 +13,12 @@ CREATE TABLE teachers
     first_name            character varying(50)             not null,
     last_name             character varying(50)             not null,
     futher_name           character varying(50)             not null,
-    department            character varying(50)             not null,
-    salary                integer                           not null,
-    qualification_level   character varying(50)             not null,
+    department            character varying(50)             null,
+    salary                integer                           null,
+    qualification_level   character varying(50)             null,
     contract_termination  date                              not null
 );
+
 
 -- UPDATE teachers SET qualification_level = 'teacher' WHERE teachers.id = 1;
 

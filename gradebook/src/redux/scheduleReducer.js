@@ -5,7 +5,7 @@ const CHANGE_CURRENT_INP = '/schedule/CHANGE_CURRENT_INP'
 
 const standartDay = {
     subject : "",
-    teacher : "",
+    group : "",
     corps : "",
     audience : ""
 }
@@ -21,6 +21,7 @@ const standartWeek = {
 
 const initialState = {
     currentInp : "",
+    status : "Teacher",
     name : "",
     first: standartWeek,
     second : standartWeek
@@ -46,8 +47,8 @@ export const scheduleAC = {
 export const changeSchedule = name => async dispatch => {
     //dispatch(profileActionCreator.isLoad(false))
     const data = await scheduleAPI.loadSchedule(name)
-    console.log(data)
-    //dispatch(scheduleAC.changeScheduleState(data))
+    dispatch(scheduleAC.changeCurrentInp(name))
+    dispatch(scheduleAC.changeScheduleState(data))
 
     //dispatch(profileActionCreator.isLoad(true))
 }

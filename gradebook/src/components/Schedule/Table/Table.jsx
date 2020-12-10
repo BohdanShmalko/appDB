@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './Table.module.css'
 
-const Table = ({data, clickFunc}) =>{
+const Table = ({data, clickFunc, status}) =>{
 
     const getDayData = (day, number) => {
         const dayObj = data[day]
@@ -11,10 +11,17 @@ const Table = ({data, clickFunc}) =>{
             <td>{number+1}</td>
             <td>{hours[number]}</td>
             <td>{dayObj[number].subject}</td>
-            {dayObj[number].teacher != "" &&
-            <td><span onClick={() => {clickFunc(dayObj[number].teacher)}}>
-                    {dayObj[number].teacher}</span></td>}
-            {dayObj[number].teacher == "" && <td></td>}
+
+            {dayObj[number].teacherName != "" && status == "Teacher" &&
+            <td><span onClick={() => {clickFunc(`${dayObj[number].teacherSurname} ${dayObj[number].teacherName} ${dayObj[number].teacherFutherName}`)}}>
+                    {dayObj[number].teacherSurname} {dayObj[number].teacherName} {dayObj[number].teacherFutherName}</span></td>}
+            {dayObj[number].teacherName == "" && status == "Teacher" && <td></td>}
+            {dayObj[number].group != "" && status == "Group" &&
+            <td><span onClick={() => {clickFunc(dayObj[number].group)}}>
+                    {dayObj[number].group}</span></td>}
+
+            {dayObj[number].group == "" && status == "Group" && <td></td>}
+
             <td>{dayObj[number].corps}</td>
             <td>{dayObj[number].audience}</td>
         </>
@@ -41,7 +48,7 @@ const Table = ({data, clickFunc}) =>{
                 <th>Pair</th>
                 <th>Time</th>
                 <th> Subject </th>
-                <th> Teacher </th>
+                <th> {status} </th>
                 <th> Corpuse </th>
                 <th> Audience </th>
             </tr>

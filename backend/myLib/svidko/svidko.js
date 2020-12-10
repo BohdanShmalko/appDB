@@ -1,14 +1,16 @@
 const http = require('http'),
       {urlStandartForm, getParser} = require('./parsers/GETparser'),
       postParser = require('./parsers/POSTparser'),
-      {SessionWrapper, DbWrapper} = require("./wrappers")
+      {SessionWrapper, DbWrapper} = require("./wrappers"),
+      standartOptions = require("./options")
 
 
 class Svidko {
     constructor(db) {
         this.db = db
         this.routing = {get: {}, post: {}}
-        this.app = http.createServer((req, res) => {  
+        this.app = http.createServer((req, res) => {
+            standartOptions(req, res)            
             getParser(this.routing.get, req, res)
             postParser(this.routing.post, req, res) 
             

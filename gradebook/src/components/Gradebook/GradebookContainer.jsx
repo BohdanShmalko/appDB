@@ -20,7 +20,8 @@ class PeoplesContainer extends React.Component {
 
 const stateToProps = state => ({
     gradebook : state.gradebook,
-    isAuthorize: state.auth.isAuthorize
+    isAuthorize: state.auth.isAuthorize,
+    userId: state.auth.userId
 })
 
 export default compose(

@@ -2,7 +2,6 @@ import React from 'react'
 import s from './Login.module.css'
 import {FieldCreator} from "../Checker/FieldCreator";
 import {CheckInput} from "../Checker/Checker";
-import {NavLink} from 'react-router-dom'
 import {reduxForm} from 'redux-form'
 import {empty} from "../../validate/validate";
 
@@ -12,17 +11,15 @@ const Login = (props) =>{
         return (
             <form onSubmit={handleSubmit} className={s.form}>
                 <div>Enter your e-mail :</div>
-                {FieldCreator(null, 'email',
+                {FieldCreator(null, 'login',
                     CheckInput, [empty], null,
-                    'Email')}
+                    'Login')}
                 <div>Enter your password :</div>
                 {FieldCreator(null, 'password',
                     CheckInput, [empty], 'password',
                     'Password')}
                 <div className = {s.submitButton}>
-                    {/*!!!CHANGE IN FUTURE*/}<NavLink to='/gradebook' >
-                    <button>Log In</button>
-                    {/*!!!CHANGE IN FUTURE*/}</NavLink>
+                        <button>Log In</button>
                 </div>
             </form>
         )
@@ -33,7 +30,8 @@ const Login = (props) =>{
     })(LogInForm)
 
     const onSubmit = formData => {
-        console.log(formData)
+        //console.log(formData)
+        props.changeUserId(formData.login, formData.password)
     }
 
     return <div className={s.login}>

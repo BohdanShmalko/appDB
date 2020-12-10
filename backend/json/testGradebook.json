@@ -2,7 +2,7 @@
   {
     "name" : "title",
     "number" : 0
-  },
+  }, 
   {  "name" : "studentsInf",
      "number" : 1,
      "educationalInstitution" : "Київський Політехнічний Інститут імені Ігоря Сікорського",
@@ -426,6 +426,7 @@
             "fromDate" : "21.12.2021",
             "issuer" : "Вася Д.О.",
             "facultyDean" : "Якийсь мужик"},
+            
             {"name" : "practiceTable",
             "number" : 32,
             "practices" : [

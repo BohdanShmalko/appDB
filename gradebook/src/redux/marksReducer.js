@@ -4,8 +4,10 @@ const CHANGE_MARKS_STATE = "/marks/CHANGE_MARKS_STATE"
 const CHANGE_ACTIVE_YEAR = "/marks/CHANGE_ACTIVE_YEAR"
 const CHANGE_ACTIVE_SUBJECT = "/marks/CHANGE_ACTIVE_SUBJECT"
 const CHANGE_ACTIVE_GROUP = "/marks/CHANGE_ACTIVE_YEAR_GROUP"
+const CHANGE_MARK = "/marks/CHANGE_MARK"
 
 const initialState = []
+
 
 export const marksReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -31,6 +33,19 @@ export const marksReducer = (state = initialState, action) => {
                 })}
             return year
         })
+        case CHANGE_MARK : return state.map((year,indexY) => {
+            if(indexY === action.year) return {...year, subjects : year.subjects.map((subject, indexS) =>{
+                    if(indexS === action.subject) return {...subject, groups : subject.groups.map((group, indexG) => {
+                            if(indexG === action.group) return {...group, students : group.students.map((student, indexSt) => {
+                                if(indexSt === action.student) return {...student, mark : action.value}
+                                return student
+                                })}
+                            return group
+                        })}
+                    return subject
+                })}
+            return year
+        })
         default : return state
     }
 }
@@ -39,13 +54,14 @@ export const marksAC = {
     changeMarksState(data) {return {type : CHANGE_MARKS_STATE, data}},
     changeActiveYear(year) {return {type : CHANGE_ACTIVE_YEAR, year}},
     changeActiveSubject(year, subject) {return {type : CHANGE_ACTIVE_SUBJECT, year, subject}},
-    changeActiveGroup(year, subject, group) {return {type : CHANGE_ACTIVE_GROUP, year, subject, group}}
+    changeActiveGroup(year, subject, group) {return {type : CHANGE_ACTIVE_GROUP, year, subject, group}},
+    changeMark(year, subject, group, student, value) {return {type: CHANGE_MARK, year, subject, group, student, value}}
 }
 
-export const getMarks = () => async dispatch => {
+export const getMarks = userId => async dispatch => {
     //dispatch(profileActionCreator.isLoad(false))
-    const data = await marksAPI.loadMarks()
-
+    const data = await marksAPI.loadMarks(userId)
+    console.log(data)
     dispatch(marksAC.changeMarksState(data))
 
     //dispatch(profileActionCreator.isLoad(true))

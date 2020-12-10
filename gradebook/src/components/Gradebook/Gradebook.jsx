@@ -13,7 +13,7 @@ import DecisionExaminationCommission from "./pages/DecisionExaminationCommission
 
 
 const Gradebook = props =>{
-    const {gradebook} = props
+    const {gradebook, userId} = props
     const currentPage = () => {
         switch (gradebook.page.name) {
             case "title" : return <Title/>
@@ -31,7 +31,7 @@ const Gradebook = props =>{
 
     const range = React.createRef();
     const rangeUp = () => {
-        props.changePage(gradebook.currentPage)
+        props.changePage(gradebook.currentPage, userId)
     }
     const rangeChange = () => {
         props.changeCurrentPage(range.current.value)
@@ -43,11 +43,11 @@ const Gradebook = props =>{
             <div className={s.navigation}>
                 <div>page : {gradebook.currentPage}</div>
                 <button disabled={gradebook.previousDisabled}
-                        onClick={()=>props.changePage(gradebook.currentPage-1)}>previous</button>
+                        onClick={()=>props.changePage(Number(gradebook.currentPage)-1, userId)}>previous</button>
                 <input type='range' min = '0' max = '37' step = '1' value = {gradebook.currentPage}
                     ref = {range} onMouseUp={rangeUp} onChange={rangeChange}/>
                 <button disabled={gradebook.nextDisabled}
-                        onClick={()=>props.changePage(gradebook.currentPage+1)}>next</button>
+                        onClick={()=>props.changePage(Number(gradebook.currentPage)+1, userId)}>next</button>
             </div>
         </div>
     </div>
