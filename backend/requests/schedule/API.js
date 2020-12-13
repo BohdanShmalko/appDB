@@ -1,15 +1,13 @@
-const requestCreator = require("../../myLib/svidko/requestCreator"),
+const {requestCreator} = require("shvidko"),
       getSchedule = require("./SQL"),
-      getJSON = require("../../myLib/DB/getJSON")
+      easyDB = require("../../easyDB")
 
 const schedule = requestCreator('post', '/schedule', async (req,res) => {
     let data = req.body
-    //console.log(getSchedule(data.name, req.db));
-    let result = await getSchedule(data.name, req.db)
+    let db = easyDB(req.db)
+    let result = await getSchedule(data.name, db)
     result.name = data.name
-    console.log(data);
-    //res.sendJSON(getJSON("testSchedule"))
-    res.sendJSON(result)
+    res.send(result)
 }, {useDB : true})
 
 

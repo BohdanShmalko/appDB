@@ -1,16 +1,16 @@
-const requestCreator = require("../../myLib/svidko/requestCreator")
+const {requestCreator} = require("shvidko")
       pageNames = require("./pageNames")
-      SQL = require("./SQL")
+      SQL = require("./SQL"),
+      easyDB = require("../../easyDB")
 
 const getPage = requestCreator('post', '/gradebook', async (req, res) => {
     const {num, userId} = req.body
     const pageName = pageNames[num]
-    console.log(req.body)
-    let pageInf = await SQL[pageName](userId, num, req.db)
+    let db = easyDB(req.db)
+    let pageInf = await SQL[pageName](userId, num, db)
     pageInf.name = pageName
     pageInf.number = num
-    //req.db.end()
-    res.sendJSON(pageInf)
+    res.send(pageInf)
 }, {useDB : true})
 
 
