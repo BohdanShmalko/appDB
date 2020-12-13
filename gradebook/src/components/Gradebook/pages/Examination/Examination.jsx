@@ -10,11 +10,12 @@ const Examination = ({page}) =>{
             <td>{mark.teacher}</td>
             <td>{mark.mark100}</td>
             <td>{mark.markWords}</td>
-            <td>{mark.draftingDate}</td>
+            {mark.draftingDate && <td>{mark.draftingDate.substr(0,10)}</td>}
+            {!mark.draftingDate && <td></td>}
         </tr>)
 
     return <div className={`${s.examination} , bookHeight`}>
-        <div className={s.date}>{page.semester}-й семестр {page.beginYear}-{page.finishYear} навчального року</div>
+        <div className={s.date}>{page.semester}-й семестр {page.beginYear.substr(0,4)}-{page.finishYear.substr(0,4)} навчального року</div>
         <div className={`${s.formAtestation} , upper`}><b>Екзамени</b></div>
         <div className={s.marks}>
             <table>

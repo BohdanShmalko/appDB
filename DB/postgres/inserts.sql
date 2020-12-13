@@ -610,3 +610,22 @@ insert into checked (id, teacher_status, teacher_id, degreeproject_id) values (7
 insert into checked (id, teacher_status, teacher_id, degreeproject_id) values (78, 'head', 4, 18);
 insert into checked (id, teacher_status, teacher_id, degreeproject_id) values (79, 'head', 4, 19);
 insert into checked (id, teacher_status, teacher_id, degreeproject_id) values (80, 'head', 4, 20);
+
+insert into teachers_authentications (id, login, password, teacher_id) values (1, 'WhrkVE', 'dG5Z0CLOHH', 1);
+ insert into students_authentications (id, login, password, student_id) values (1, '82urvuSN', 'tHh3hg', 1);
+
+UPDATE teachers_authentications SET login = 'newLogin' WHERE id = 1;
+UPDATE teachers_authentications SET password = 'newPassword' WHERE id = 1;
+UPDATE students_authentications SET login = 'newLogin' WHERE id = 1;
+UPDATE students_authentications SET password = 'newPassword' WHERE id = 1;
+
+
+insert into students_emails (email, sign, student_id) values ('kbeardwoode@eventbrite.com', 'In haumst.', 15);
+insert into students_phones (phone_number, sign, student_id) values ('2577255901', 'Mauris lacro.', 1);
+insert into teachers_emails (email, sign, student_id) values ('kbeardwoode@eventbrite.com', 'In haumst.', 15);
+insert into teachers_phones (phone_number, sign, student_id) values ('2577255901', 'Mauris lacro.', 1);
+
+UPDATE students_emails SET phone_number = 'newPhone_number' WHERE id = 1;
+UPDATE students_phones SET email = 'newEmail' WHERE id = 1;
+UPDATE teachers_emails SET phone_number = 'newPhone_number' WHERE id = 1;
+UPDATE teachers_phones SET email = 'newEmail' WHERE id = 1;

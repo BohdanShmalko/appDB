@@ -104,7 +104,7 @@ WHERE students.id = ${userId}`)
             SELECT subjects.name AS "subject",
                 subjects.hours AS "hours",
                 subjects.loans AS "loans",
-                teachers.last_name AS "teacher",
+                teachers.first_name || ' ' || teachers.last_name || ' ' || teachers.futher_name AS "teacher",
                 evaluations.mark100 AS "mark100",
                 evaluations.markword AS "markWords",
                 evaluations.assessment_date AS "draftingDate"
@@ -224,20 +224,7 @@ WHERE students.id = ${userId}`)
         return result
 
     },
-    // {"name" : "degreeProject",
-    //         "number" : 30,
-    //         "studentName" : "Богдан",
-    //         "studentSurname" : "Шмалько",
-    //         "studentFathername" : "Ігорович",
-    //         "topic" : "web is cool",
-    //         "courseSupervisor" : "Якийсь мужик", !!!!
-    //         "projectSubmissionDate" : "02.03.2021",
-    //         "protectionDate" : "19.03.2021",
-    //         "mark100" : "97",
-    //         "markWords" : "відмінно",
-    //         first : !!!
-    //          second :  !!!
-    //          third  !!
+
     degreeProject : async (userId, num, db) =>{
         const degreeProjectPages = {30:1, 36:2}
         

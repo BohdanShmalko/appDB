@@ -17,10 +17,10 @@ const StudentsInf = ({page}) =>{
                     <div>Спеціальність : {page.specialty}</div>
                     <div>Рівень вищої освіти/Освітньо-кваліфікаційний рівень : {page.qualification}</div>
                     <div>Форма навчання : {page.studyForm}</div>
-                    <div>Вступив(ла) на {page.admissionCourse} курс, з {page.admissionYear}</div>
+                    <div>Вступив(ла) на {page.admissionCourse} курс, з {page.admissionYear.substr(0,10)}</div>
                     <div>Проректор з навчальної роботи : {page.educationalViceRector}</div>
                     <div>Декан факультету : {page.facultyDean}</div>
-                    <div>Дата видачі залікової книжки : {page.issueDate}</div>
+                    <div>Дата видачі залікової книжки : {page.issueDate.substr(0,10)}</div>
                 </div>
             </div>
         </div>
